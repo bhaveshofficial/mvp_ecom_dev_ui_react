@@ -5,3 +5,19 @@
 .app-txt-var1 {
   color: teal;
 }
+.app-nav-action-btn {
+  border-radius: 0% !important;
+  background-color: teal;
+  width: 180px;
+  max-width: 180px;
+  float: right;
+
+}
+.app-action-link {
+  color: white;
+  text-decoration: none;
+}
+.app-action-link:hover {
+  color: white;  
+}
+

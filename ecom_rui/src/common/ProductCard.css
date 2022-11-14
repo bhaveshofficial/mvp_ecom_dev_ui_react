@@ -1,4 +1,22 @@
 .card-action-btn {
-    border-radius: 0%!important;    
+    border-radius: 0% !important;
+    width: 120px;
+    max-width: 120px;
+    float: right;
 
+}
+.card-action-btn:disabled {
+    opacity: 1;
+}
+
+.card-remove-btn {
+    background-color: pink;
+}
+
+.card-sucessfeedback-btn {
+    background-color: #198754;
+}
+
+.card-add-btn {
+    background-color: #198754;
 }

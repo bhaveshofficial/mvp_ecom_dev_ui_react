@@ -1,8 +1,38 @@
+import { useState } from "react";
 import { Button, Card } from "react-bootstrap"
 
+import CardActionBtn from "./CardActionBtn";
+import './ProductCard.css';
 
 
-const ProductCard = ({p, btnInfo}) => {    
+
+const ProductCard = ({p, actionBtnInfo, actionBtnCallbck}) => {  
+
+    const [btnInfo, setBtnInfo] = useState(actionBtnInfo);
+
+
+    const actionBtnHandler = () => {
+
+        
+        const addToCartObj = {
+            userId : window.sessionStorage.getItem('ecommvp_userid'),
+            productId : p?.pid
+        }    
+
+        actionBtnCallbck(addToCartObj).then((res) => {
+          console.log("comong " + res?.data);
+          if (res?.data === "ADDTOCART_SUCCESS") {
+            setBtnInfo({
+              isDisabled: true,
+              isSuccessFeedback: true,
+              isRemoveActionBtn: false,
+              className: "card-sucessfeedback-btn",
+              title: "",
+            });
+          }
+        });
+        
+    }
 
     return <Card>
         {
@@ -22,8 +52,8 @@ const ProductCard = ({p, btnInfo}) => {
 
             </Card.Text>
             }
-            <Button>{p?.pprice}</Button>
-            <Button variant="success" className="card-action-btn">{btnInfo.title}</Button>
+            <span className="h5"> &#8377; {p?.pprice} &nbsp;</span>
+            <CardActionBtn btnInfo={btnInfo} btnCallBack={actionBtnHandler}></CardActionBtn>
         </Card.Body>
     </Card>
 

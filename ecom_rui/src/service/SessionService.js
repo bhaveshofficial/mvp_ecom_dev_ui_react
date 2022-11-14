@@ -1,15 +1,26 @@
+import axios from "axios";
+import URI_CONSTANT from '../common/Constants';
+
 /**
  * Generates user id, to be used to map order details with user.
  * flag_UIOnly, indicates mode of app (UIOnly, UI + Backend)
  **/
-const getUserId = (flag_UIOnly) => {
-
+ function  getUserId(flag_UIOnly){
+    
     if(!flag_UIOnly){
-        //call backend service;
+        console.log('calling getuserid')
+        axios.get(URI_CONSTANT.GET_USERID)
+        .then(res => {
+            let uId = res?.data;   
+            window.sessionStorage.setItem('ecommvp_userid', uId);         
+        })
     }
     else {
-        return 1001;
-    }
+        let userId = 1;
+        window.sessionStorage.setItem('ecommvp_userid', userId);         
+    }        
 }
+
+
 
 export default getUserId;
