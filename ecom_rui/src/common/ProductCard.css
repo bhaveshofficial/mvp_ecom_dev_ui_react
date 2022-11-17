@@ -10,7 +10,7 @@
 }
 
 .card-remove-btn {
-    background-color: pink;
+    background-color: #DC3545;    
 }
 
 .card-sucessfeedback-btn {
@@ -19,4 +19,17 @@
 
 .card-add-btn {
     background-color: #198754;
+}
+
+.card-img-small {
+    width: 80px;
+    height: 80px;
+}
+
+.card-img-large {
+    width: 200px;
+    height: 200px;
+}
+.card-horizontal {
+    flex-direction: row;
 }
