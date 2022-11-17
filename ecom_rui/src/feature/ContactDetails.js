@@ -1,9 +1,12 @@
 import "./ContactDetails.css";
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {Button, Form, Row, Col} from 'react-bootstrap';
 import { saveContactDetails } from "../service/UserService";
 
 const ContactDetails = () => {
+
+    const history = useHistory();
     
     const [name, setName] = useState({val: '', isValid: false, isTouched: false});
     const [email, setEmail] = useState({val: '', isValid: false, isTouched: false});
@@ -26,13 +29,13 @@ const ContactDetails = () => {
         let inputVal = event.target.value;
         if(inputVal?.trim() == ''){
             setName((prevState) => {
-                return {...prevState, isValid : false, isTouched: true}
+                return {val : inputVal, isValid : false, isTouched: true}
             })
         }
         else {
             console.log('coming here');
             setName((prevState) => {
-                return {...prevState, isValid : true, isTouched: true}
+                return {val : inputVal, isValid : true, isTouched: true}
             })
         }
         console.log(event.target.value);
@@ -42,13 +45,13 @@ const ContactDetails = () => {
         let inputVal = event.target.value;
         if(inputVal?.trim() != '' && inputVal.includes('@')){
             setEmail((prevState) => {
-                return {...prevState, isValid : true, isTouched: true}
+                return {val : inputVal, isValid : true, isTouched: true}
             })            
         }
         else {
             console.log('coming here');
             setEmail((prevState) => {
-                return {...prevState, isValid : false, isTouched: true}
+                return {val : inputVal, isValid : false, isTouched: true}
             })
         }
         console.log(event.target.value);
@@ -61,14 +64,14 @@ const ContactDetails = () => {
         let inputVal = event.target.value;
         if(inputVal?.trim() != '' && inputVal.match(/^\d+$/) && inputVal.length == 9){
             setMobile((prevState) => {
-                return {...prevState, isValid : true, isTouched: true}
+                return {val : inputVal, isValid : true, isTouched: true}
             })
             
         }
         else {
             console.log('coming here');
             setMobile((prevState) => {
-                return {...prevState, isValid : false, isTouched: true}
+                return {val : inputVal, isValid : false, isTouched: true}
             })
         }
         console.log(event.target.value);
@@ -83,28 +86,28 @@ const ContactDetails = () => {
             switch(fieldName) {
                 case 'address':
                     setAddress((prevState) => {
-                        return {...prevState, isValid : true, isTouched: true}
+                        return {val : inputVal, isValid : true, isTouched: true}
                     })
                     break;
                 case 'state':
                     setState((prevState) => {
-                        return {...prevState, isValid : true, isTouched: true}
+                        return {val : inputVal, isValid : true, isTouched: true}
                     })
                     break;
                 case 'city':
                     setCity((prevState) => {
-                        return {...prevState, isValid : true, isTouched: true}
+                        return {val : inputVal, isValid : true, isTouched: true}
                     })
                     break;
                 case 'pincode':
                     if(inputVal == 0){
                         setPincode((prevState) => {
-                            return {...prevState, isValid : false, isTouched: true}
+                            return {val : inputVal, isValid : false, isTouched: true}
                         })  
                     }
                     else {
                         setPincode((prevState) => {
-                            return {...prevState, isValid : true, isTouched: true}
+                            return {val : inputVal, isValid : true, isTouched: true}
                         })  
                     }
                                       
@@ -117,22 +120,22 @@ const ContactDetails = () => {
             switch(fieldName) {
                 case 'address':
                     setAddress((prevState) => {
-                        return {...prevState, isValid : false, isTouched: true}
+                        return {val : inputVal, isValid : false, isTouched: true}
                     })
                     break;
                 case 'state':
                     setState((prevState) => {
-                        return {...prevState, isValid : false, isTouched: true}
+                        return {val : inputVal, isValid : false, isTouched: true}
                     })
                     break;
                 case 'city':
                     setCity((prevState) => {
-                        return {...prevState, isValid : false, isTouched: true}
+                        return {val : inputVal, isValid : false, isTouched: true}
                     })
                     break;
                 case 'pincode':
                     setPincode((prevState) => {
-                        return {...prevState, isValid : false, isTouched: true}
+                        return {val : inputVal, isValid : false, isTouched: true}
                     })                   
                     
             }
@@ -148,18 +151,19 @@ const ContactDetails = () => {
         event.preventDefault();
 
         const contactData = {
-          uId: window.sessionStorage.getItem("ecommvp_userid"),
-          cName: name,
-          cEmail: email,
-          cMobile: mobile,
-          cAddress: address,
-          cState: state,
-          cCity: city,
-          cPincode: pincode,
+            userId: window.sessionStorage.getItem("ecommvp_userid"),
+            contactName: name?.val,
+            contactEmail: email?.val,
+            contactMobile: mobile?.val,
+            contactAddress: address?.val,
+            contactState: state?.val,
+            contactCity: city?.val,
+            contactPincode: pincode?.val,
         };
         console.log(contactData);
         saveContactDetails(contactData).then(res => {
             console.log('route to next screen');
+            history.push('/orderDetails');
         })
     }
     

@@ -6,6 +6,7 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Cart from "../../feature/Cart";
 import ErrorNotFound from "../ErrorNotFound";
 import ContactDetails from "../../feature/ContactDetails";
+import OrderDetails from "../../feature/OrderDetails";
 
 const Main = () => {
   // const [greeting, updateGreeting] = useState("Hello");
@@ -14,10 +15,11 @@ const Main = () => {
     <Container fluid="sm">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ContactDetails}></Route>
+          <Route exact path="/" component={ProductListing}></Route>
           <Route path="/products" component={ProductListing}></Route>
           <Route path="/cart" component={Cart}></Route>
           <Route path="/contactDetails" component={ContactDetails}></Route>
+          <Route path="/orderDetails" component={OrderDetails}></Route>
           <Route component={ErrorNotFound}></Route>
         </Switch>
       </BrowserRouter>
