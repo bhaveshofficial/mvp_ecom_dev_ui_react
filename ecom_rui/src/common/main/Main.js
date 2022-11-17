@@ -14,7 +14,7 @@ const Main = () => {
     <Container fluid="sm">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ProductListing}></Route>
+          <Route exact path="/" component={ContactDetails}></Route>
           <Route path="/products" component={ProductListing}></Route>
           <Route path="/cart" component={Cart}></Route>
           <Route path="/contactDetails" component={ContactDetails}></Route>
