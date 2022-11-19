@@ -10,3 +10,10 @@ export function saveContactDetails(contactData) {
     })
 
 }
+
+export function getUserDetails(uId){
+    return axios.get(URI_CONSTANT.GET_USER, {params : {userId : uId}}).then(res => {
+        console.log(res?.data);
+        return res;
+    })
+}

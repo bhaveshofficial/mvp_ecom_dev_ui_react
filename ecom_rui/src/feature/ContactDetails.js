@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {Button, Form, Row, Col} from 'react-bootstrap';
 import { saveContactDetails } from "../service/UserService";
+import { placeOrder } from "../service/OrderService";
 
 const ContactDetails = () => {
 
@@ -162,8 +163,15 @@ const ContactDetails = () => {
         };
         console.log(contactData);
         saveContactDetails(contactData).then(res => {
-            console.log('route to next screen');
-            history.push('/orderDetails');
+            console.log('checking response..');
+            if(res?.data === "ADDCONTACT_SUCCESS"){
+                console.log('first call success');
+                placeOrder(window.sessionStorage.getItem("ecommvp_userid")).then(res => {
+                    console.log('second call success')
+                    if(res?.data == 'PLACEORDER_SUCCESS')
+                        history.push('/orderDetails');
+                })
+            }            
         })
     }
     
