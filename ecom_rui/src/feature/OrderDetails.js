@@ -4,7 +4,7 @@ import { getOrder } from "../service/OrderService";
 import { getUserDetails } from "../service/UserService";
 import "./OrderDetails.css";
 
-const OrderDetails = () => {
+const OrderDetails = ({flagUIOnly}) => {
   const [orderId, setOrderId] = useState(0);
   const [userDetails, setUserDetails] = useState({});
 
@@ -14,7 +14,7 @@ const OrderDetails = () => {
   //getOrder
   useEffect(() => {
     let id = window.sessionStorage.getItem("ecommvp_userid");
-    getOrder(id).then((res) => {
+    getOrder(id, flagUIOnly).then((res) => {
       setOrderId(res?.data.orderId);
     });
   }, []);
@@ -22,7 +22,7 @@ const OrderDetails = () => {
   //getUser
   useEffect(() => {
     let id = window.sessionStorage.getItem("ecommvp_userid");
-    getUserDetails(id).then((res) => {
+    getUserDetails(id, flagUIOnly).then((res) => {
       setUserDetails(res?.data);
     });
   }, []);

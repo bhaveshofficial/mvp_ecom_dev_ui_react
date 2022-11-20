@@ -44,6 +44,8 @@ export const productDetails = [
 ];
 
 export const cartMap = new Map();
+const userDetails = new Map();
+const orderDetails = new Map();
 
 export const addToCart_UIOnly = (addToCartObj) => {
     if(cartMap.has(addToCartObj?.userId)){
@@ -70,4 +72,22 @@ export const removeFromCart_UIOnly = (sessionUserId, pId) => {
     else {
         cartMap.delete(sessionUserId);
     }
+}
+
+export const saveContactDetails_UIOnly = (contactData) => {
+
+  userDetails.set(contactData.userId, contactData);
+
+}
+
+export const getUserDetails_UIOnly = (sessionUserId) =>{
+  return userDetails.get(sessionUserId);
+}
+
+export const placeOrder_UIOnly = (sessionUserId) =>{
+  orderDetails.set(sessionUserId, 1000);
+}
+
+export const getOrder_UIOnly = (sessionUserId) =>{
+  return orderDetails.get(sessionUserId);
 }

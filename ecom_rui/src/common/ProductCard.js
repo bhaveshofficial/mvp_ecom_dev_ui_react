@@ -17,8 +17,7 @@ const ProductCard = ({ p, actionBtnInfo, actionBtnCallbck, flagUIOnly }) => {
         productId: p?.pid,
       };
 
-      actionBtnCallbck(addToCartObj, flagUIOnly).then((res) => {
-        console.log("comong " + res?.data);
+      actionBtnCallbck(addToCartObj, flagUIOnly).then((res) => {        
         if (res?.data === "ADDTOCART_SUCCESS") {
           setBtnInfo({
             isDisabled: true,

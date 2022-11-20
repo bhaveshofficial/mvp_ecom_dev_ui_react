@@ -8,8 +8,6 @@ import "./Cart.css";
 const Cart = ({flagUIOnly}) => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  console.log("cart data ");
-  console.log(cart);
 
   const cardActionBtnInfo = {
     isDisabled: false,
@@ -25,14 +23,12 @@ const Cart = ({flagUIOnly}) => {
   }
 
   const calCartTotal = () => {
-    console.log("cart total calc");
-    const result = cart.map(item => item.pprice).reduce((total, num) => {return total + num;}, 0);
-    console.log('what is ' + result);
+    
+    const result = cart.map(item => item.pprice).reduce((total, num) => {return total + num;}, 0);    
     setCartTotal(result);
   }
 
-  const removeProduct = (productId, flagUIOnly) => {
-    console.log(productId);
+  const removeProduct = (productId, flagUIOnly) => {    
     removeFromCart(productId, flagUIOnly).then(res => updateCart(productId));
   };
 

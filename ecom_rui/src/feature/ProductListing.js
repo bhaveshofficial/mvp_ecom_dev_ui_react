@@ -8,9 +8,7 @@ import { getProducts, getProducts_UIOnly } from "../service/ProductService";
 import { addToCart } from "../service/CartService";
 import { Link } from "react-router-dom";
 
-const ProductListing = ({flagUIOnly}) => {
-
-  console.log('received flag ' + flagUIOnly)
+const ProductListing = ({flagUIOnly}) => {  
   const cardActionBtnInfo = {
     isDisabled: false,
     isSuccessFeedback: false,

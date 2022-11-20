@@ -5,7 +5,7 @@ import {Button, Form, Row, Col} from 'react-bootstrap';
 import { saveContactDetails } from "../service/UserService";
 import { placeOrder } from "../service/OrderService";
 
-const ContactDetails = () => {
+const ContactDetails = ({flagUIOnly}) => {
 
     const history = useHistory();
     
@@ -162,11 +162,11 @@ const ContactDetails = () => {
             contactPincode: pincode?.val,
         };
         console.log(contactData);
-        saveContactDetails(contactData).then(res => {
+        saveContactDetails(contactData, flagUIOnly).then(res => {
             console.log('checking response..');
             if(res?.data === "ADDCONTACT_SUCCESS"){
                 console.log('first call success');
-                placeOrder(window.sessionStorage.getItem("ecommvp_userid")).then(res => {
+                placeOrder(window.sessionStorage.getItem("ecommvp_userid"), flagUIOnly).then(res => {
                     console.log('second call success')
                     if(res?.data == 'PLACEORDER_SUCCESS')
                         history.push('/orderDetails');
