@@ -5,7 +5,7 @@ import ProductCard from "../common/ProductCard";
 import { getCart, removeFromCart } from "../service/CartService";
 import "./Cart.css";
 
-const Cart = () => {
+const Cart = ({flagUIOnly}) => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   console.log("cart data ");
@@ -31,15 +31,15 @@ const Cart = () => {
     setCartTotal(result);
   }
 
-  const removeProduct = (productId) => {
+  const removeProduct = (productId, flagUIOnly) => {
     console.log(productId);
-    removeFromCart(productId).then(res => updateCart(productId));
+    removeFromCart(productId, flagUIOnly).then(res => updateCart(productId));
   };
 
   useEffect(() => {
-    getCart().then((res) => {
+    getCart(flagUIOnly).then((res) => {
       setCart(res?.data);
-      calCartTotal();            
+      calCartTotal();
     });
   }, []);  
 
@@ -53,6 +53,7 @@ const Cart = () => {
                 p={item}
                 actionBtnInfo={cardActionBtnInfo}
                 actionBtnCallbck={removeProduct}
+                flagUIOnly={flagUIOnly}
               ></ProductCard>
             </Col>
           );

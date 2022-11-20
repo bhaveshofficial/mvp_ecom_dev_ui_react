@@ -4,20 +4,20 @@ import { Button, Card } from "react-bootstrap";
 import CardActionBtn from "./CardActionBtn";
 import "./ProductCard.css";
 
-const ProductCard = ({ p, actionBtnInfo, actionBtnCallbck }) => {
+const ProductCard = ({ p, actionBtnInfo, actionBtnCallbck, flagUIOnly }) => {
   const [btnInfo, setBtnInfo] = useState(actionBtnInfo);
 
   const actionBtnHandler = (pId) => {
     if (btnInfo?.isRemoveActionBtn) {
       const productId = pId;
-      actionBtnCallbck(productId);
+      actionBtnCallbck(productId, flagUIOnly);
     } else {
       const addToCartObj = {
         userId: window.sessionStorage.getItem("ecommvp_userid"),
         productId: p?.pid,
       };
 
-      actionBtnCallbck(addToCartObj).then((res) => {
+      actionBtnCallbck(addToCartObj, flagUIOnly).then((res) => {
         console.log("comong " + res?.data);
         if (res?.data === "ADDTOCART_SUCCESS") {
           setBtnInfo({

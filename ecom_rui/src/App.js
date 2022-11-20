@@ -19,7 +19,7 @@ function App() {
    */
   useEffect(() => {
     if (!userIdState?.isReceived) {
-      let userId = getUserId(false);
+      let userId = getUserId(true);
       updateUserIdState({ isReceived: true, val: userId }); //error prone
     }
   }, []);
@@ -27,7 +27,7 @@ function App() {
   return (
     <>
       <Header></Header>      
-        <Main></Main>      
+        <Main flagUIOnly={true}></Main>      
     </>
   );
 }

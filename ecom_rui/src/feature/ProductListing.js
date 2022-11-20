@@ -4,11 +4,13 @@ import { Button, Col, Row } from "react-bootstrap";
 
 import ProductCard from "../common/ProductCard";
 import "./ProductListing.css";
-import { getProducts } from "../service/ProductService";
+import { getProducts, getProducts_UIOnly } from "../service/ProductService";
 import { addToCart } from "../service/CartService";
 import { Link } from "react-router-dom";
 
-const ProductListing = () => {
+const ProductListing = ({flagUIOnly}) => {
+
+  console.log('received flag ' + flagUIOnly)
   const cardActionBtnInfo = {
     isDisabled: false,
     isSuccessFeedback: false,
@@ -17,15 +19,20 @@ const ProductListing = () => {
     title: "Add To Cart",
   };
 
-  const call_AddToCart = (addToCartObj) => {
-    return addToCart(addToCartObj);
+  const call_AddToCart = (addToCartObj, flagUIOnly) => {
+    return addToCart(addToCartObj, flagUIOnly);
   };
 
   const [productList, updateProductList] = useState([]);
 
   useEffect(() => {
     //call addToCart service method, with callback args
-    getProducts(updateProductList);
+    if(flagUIOnly){
+      getProducts_UIOnly(updateProductList);
+    }
+    else {
+      getProducts(updateProductList);
+    }    
   }, []);
 
   return (
@@ -38,6 +45,7 @@ const ProductListing = () => {
                 p={product}
                 actionBtnInfo={cardActionBtnInfo}
                 actionBtnCallbck={call_AddToCart}
+                flagUIOnly={flagUIOnly}
               ></ProductCard>
             </Col>
           );

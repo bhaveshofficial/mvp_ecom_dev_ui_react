@@ -8,18 +8,18 @@ import ErrorNotFound from "../ErrorNotFound";
 import ContactDetails from "../../feature/ContactDetails";
 import OrderDetails from "../../feature/OrderDetails";
 
-const Main = () => {
+const Main = ({flagUIOnly}) => {
   // const [greeting, updateGreeting] = useState("Hello");
 
   return (
     <Container fluid="sm">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={ProductListing}></Route>
-          <Route path="/products" component={ProductListing}></Route>
-          <Route path="/cart" component={Cart}></Route>
-          <Route path="/contactDetails" component={ContactDetails}></Route>
-          <Route path="/orderDetails" component={OrderDetails}></Route>
+          <Route exact path="/" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
+          <Route path="/products" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
+          <Route path="/cart" component={()=> <Cart flagUIOnly={flagUIOnly}></Cart>}></Route>
+          <Route path="/contactDetails" component={()=> <ContactDetails flagUIOnly={flagUIOnly}></ContactDetails>}></Route>
+          <Route path="/orderDetails" component={()=> <OrderDetails flagUIOnly={flagUIOnly}></OrderDetails>}></Route>
           <Route component={ErrorNotFound}></Route>
         </Switch>
       </BrowserRouter>
