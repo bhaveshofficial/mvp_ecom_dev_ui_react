@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mvp_ecom_dev_ui_react/static/css/main.c534c273.css",
-    "main.js": "/mvp_ecom_dev_ui_react/static/js/main.7598649d.js",
+    "main.js": "/mvp_ecom_dev_ui_react/static/js/main.fa77a206.js",
     "static/js/787.984b2180.chunk.js": "/mvp_ecom_dev_ui_react/static/js/787.984b2180.chunk.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/mvp_ecom_dev_ui_react/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/mvp_ecom_dev_ui_react/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -10,11 +10,11 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/mvp_ecom_dev_ui_react/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "index.html": "/mvp_ecom_dev_ui_react/index.html",
     "main.c534c273.css.map": "/mvp_ecom_dev_ui_react/static/css/main.c534c273.css.map",
-    "main.7598649d.js.map": "/mvp_ecom_dev_ui_react/static/js/main.7598649d.js.map",
+    "main.fa77a206.js.map": "/mvp_ecom_dev_ui_react/static/js/main.fa77a206.js.map",
     "787.984b2180.chunk.js.map": "/mvp_ecom_dev_ui_react/static/js/787.984b2180.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c534c273.css",
-    "static/js/main.7598649d.js"
+    "static/js/main.fa77a206.js"
   ]
 }
