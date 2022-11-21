@@ -63,7 +63,7 @@ const Cart = ({flagUIOnly}) => {
       <Row className="mt-5">
         <Col>
         <Button variant="success" className="app-nav-action-btn cart-nav-act-btn">
-          <Link className="app-action-link" to="/contactDetails"><i className="fa fa-address-book" ></i> {" "}Add Contact Details<br></br><i className="fa fa-arrow-right fa-2x"></i> </Link>
+          <Link className="app-action-link" to="/mvp_ecom_dev_ui_react/contactDetails"><i className="fa fa-address-book" ></i> {" "}Add Contact Details<br></br><i className="fa fa-arrow-right fa-2x"></i> </Link>
         </Button>
         </Col>        
       </Row>

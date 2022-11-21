@@ -169,7 +169,7 @@ const ContactDetails = ({flagUIOnly}) => {
                 placeOrder(window.sessionStorage.getItem("ecommvp_userid"), flagUIOnly).then(res => {
                     console.log('second call success')
                     if(res?.data == 'PLACEORDER_SUCCESS')
-                        history.push('/orderDetails');
+                        history.push('/mvp_ecom_dev_ui_react/orderDetails');
                 })
             }            
         })

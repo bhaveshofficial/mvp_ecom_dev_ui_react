@@ -15,11 +15,11 @@ const Main = ({flagUIOnly}) => {
     <Container fluid="sm">
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
-          <Route path="/products" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
-          <Route path="/cart" component={()=> <Cart flagUIOnly={flagUIOnly}></Cart>}></Route>
-          <Route path="/contactDetails" component={()=> <ContactDetails flagUIOnly={flagUIOnly}></ContactDetails>}></Route>
-          <Route path="/orderDetails" component={()=> <OrderDetails flagUIOnly={flagUIOnly}></OrderDetails>}></Route>
+          <Route exact path="/mvp_ecom_dev_ui_react" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
+          <Route path="/mvp_ecom_dev_ui_react/products" component={()=> <ProductListing flagUIOnly={flagUIOnly}></ProductListing>}></Route>
+          <Route path="/mvp_ecom_dev_ui_react/cart" component={()=> <Cart flagUIOnly={flagUIOnly}></Cart>}></Route>
+          <Route path="/mvp_ecom_dev_ui_react/contactDetails" component={()=> <ContactDetails flagUIOnly={flagUIOnly}></ContactDetails>}></Route>
+          <Route path="/mvp_ecom_dev_ui_react/orderDetails" component={()=> <OrderDetails flagUIOnly={flagUIOnly}></OrderDetails>}></Route>
           <Route component={ErrorNotFound}></Route>
         </Switch>
       </BrowserRouter>

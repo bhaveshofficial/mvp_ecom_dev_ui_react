@@ -52,7 +52,7 @@ const ProductListing = ({flagUIOnly}) => {
       <Row xs={1} className="mt-5">
         <Col>
           <Button variant="success" className="app-nav-action-btn">
-            <Link to="/cart" className="app-action-link">
+            <Link to="/mvp_ecom_dev_ui_react/cart" className="app-action-link">
               Go To Cart &nbsp;{" "}
               <i className="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
             </Link>
